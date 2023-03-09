@@ -1,4 +1,3 @@
-# retoSofka
 <p align="center">
   <a href="https://www.sofka.com.co/es/inicio/" target="blank"><img src="https://media.glassdoor.com/sqll/3788784/sofka-technologies-squareLogo-1668095593025.png" width="200" alt="Sofka Logo" /></a>
 </p>
