@@ -1,12 +1,10 @@
 package com.sofka.backend.api;
 
 import com.sofka.backend.domain.model.buys.Buy;
+import com.sofka.backend.domain.model.paging.Page;
 import com.sofka.backend.domain.usecase.buy.BuyUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
 @RestController
@@ -17,7 +15,14 @@ public class BuyController {
     private BuyUseCase useCase;
 
     @PostMapping("/buyProduct")
-    public Mono<Buy> buyProduct (@RequestBody Buy buy){
+    public Mono<Buy> buyProduct(@RequestBody Buy buy) {
         return useCase.saveBuy(buy);
+    }
+
+    @GetMapping("/allBuys")
+    public Mono<Page<Buy>> allBuys(@RequestParam(required = false) Integer size,
+                                   @RequestParam(required = false) Integer page,
+                                   @RequestParam(required = false) String sort) {
+        return useCase.findAllBuys(size, page, sort);
     }
 }
