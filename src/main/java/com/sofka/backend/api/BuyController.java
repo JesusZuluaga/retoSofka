@@ -9,6 +9,7 @@ import reactor.core.publisher.Mono;
 
 @RestController
 @RequestMapping("buys")
+@CrossOrigin(origins = "*")
 public class BuyController {
 
     @Autowired
